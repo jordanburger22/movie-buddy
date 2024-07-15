@@ -1,0 +1,13 @@
+
+What is State?
+- State is a way to store and manage data that changes over time.
+- Each component can have its own state.
+- State is mutable, meaning it can be updated.
+
+Why is State Important?
+- State allows your component to maintain and update its data.
+- When state changes, React automatically re-renders the component to reflect the new state, ensuring the user interface stays in sync with the data.
+
+useState Hook
+- In functional components, the useState hook is used to add state.
+- useState returns an array with two elements: the current state and a function to update that state.

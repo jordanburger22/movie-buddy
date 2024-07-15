@@ -3,15 +3,6 @@ import movies from "../movies"
 
 export default function RandomMovie() {
 
-    // Challenge:
-    // redo what we just did!
-    // create movieIndex state and update that index in the getRandomMovie function
-    // add the rating and description from the movie in p tags
-    // leave out the imageUrl for now
-
-    //js variable
-    let index = 0
-
     // react state
     const [movieIndex, setMovieIndex] = useState(0)
 
@@ -21,15 +12,16 @@ export default function RandomMovie() {
     }
 
     function nextMovie(num) {
-
-        index += num
-        if (index < 0) {
-            index = movies.length - 1
-        }
-        if (index === movies.length) {
-            index = 0
-        }
-        console.log(movies[index])
+        setMovieIndex(prevMovieIndex => {
+            const newIndex = prevMovieIndex + num
+            if(newIndex < 0 ){
+                return movies.length - 1
+            } else if ( newIndex === movies.length){
+                return 0
+            } else {
+                return newIndex
+            }
+        })
     }
 
     return (
