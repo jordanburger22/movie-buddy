@@ -1,11 +1,11 @@
 
 
 
-export default function Navbar(props){
+export default function Navbar(props) {
 
-    const {toggleTheme} = props
+    const { toggleTheme } = props
 
-    return(
+    return (
         <nav className="nav">
             <h1>MovieBuddy</h1>
             <button onClick={toggleTheme}>Toggle Theme</button>

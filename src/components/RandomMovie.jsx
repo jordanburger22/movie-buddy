@@ -1,8 +1,9 @@
 import { useState } from "react"
 import movies from "../movies"
 
-export default function RandomMovie() {
+export default function RandomMovie(props) {
 
+    const {addMovie} = props
     // react state
     const [movieIndex, setMovieIndex] = useState(0)
     const [showDetails, setShowDetails] = useState(false)
@@ -25,26 +26,27 @@ export default function RandomMovie() {
         })
     }
 
-    function toggleDetails(){
+    function toggleDetails() {
         setShowDetails(!showDetails)
     }
 
     return (
         <div>
             <h1>{movies[movieIndex].title}</h1>
-            
-            { showDetails && (
-               <>
-               <p>Description: {movies[movieIndex].description}</p>
-                <p>Rating : {movies[movieIndex].rating}</p>
-               </>
+
+            {showDetails && (
+                <>
+                    <p>Description: {movies[movieIndex].description}</p>
+                    <p>Rating : {movies[movieIndex].rating}</p>
+                </>
             )
             }
 
             <button onClick={() => nextMovie(-1)}>Prev Movie</button>
             <button onClick={() => nextMovie(1)}>Next Movie</button>
             <button onClick={getRandomMovie}>Random Movie</button>
-            <button onClick = {toggleDetails}>{showDetails ? "Hide Details" : "Show Details"}</button>
+            <button onClick={toggleDetails}>{showDetails ? "Hide Details" : "Show Details"}</button>
+            <div><button onClick={() => addMovie(movies[movieIndex])}>Save Movie</button></div>
         </div>
     )
 }

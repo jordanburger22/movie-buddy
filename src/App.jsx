@@ -1,6 +1,8 @@
 import { useState } from "react"
 import RandomMovie from "./components/RandomMovie"
 import Navbar from "./components/Navbar"
+import FavoriteMovie from "./components/FavoriteMovies"
+
 
 
 function App() {
@@ -11,10 +13,19 @@ function App() {
     setTheme(prevTheme => prevTheme === 'light' ? 'dark' : 'light')
   }
 
+  const [favMovies, setFavMovies] = useState([])
+
+  function addMovie(newMovie){
+    setFavMovies(prevFavMovies => {
+      return [...prevFavMovies, newMovie]
+    })
+  }
+
   return (
     <div className={`${theme} main`}>
       <Navbar toggleTheme={toggleTheme}/>
-      <RandomMovie />
+      <RandomMovie addMovie={addMovie}/>
+      <FavoriteMovie favMovies={favMovies}/>
     </div>
   )
 }
