@@ -1,10 +1,11 @@
-import {useState} from "react"
+import { useState } from "react"
 import movies from "../movies"
 
 export default function RandomMovie() {
 
     // react state
     const [movieIndex, setMovieIndex] = useState(0)
+    const [showDetails, setShowDetails] = useState(false)
 
     function getRandomMovie() {
         const randomIndex = Math.floor(Math.random() * movies.length)
@@ -14,9 +15,9 @@ export default function RandomMovie() {
     function nextMovie(num) {
         setMovieIndex(prevMovieIndex => {
             const newIndex = prevMovieIndex + num
-            if(newIndex < 0 ){
+            if (newIndex < 0) {
                 return movies.length - 1
-            } else if ( newIndex === movies.length){
+            } else if (newIndex === movies.length) {
                 return 0
             } else {
                 return newIndex
@@ -24,14 +25,26 @@ export default function RandomMovie() {
         })
     }
 
+    function toggleDetails(){
+        setShowDetails(!showDetails)
+    }
+
     return (
         <div>
             <h1>{movies[movieIndex].title}</h1>
-            <p>Description: {movies[movieIndex].description}</p>
-            <p>Rating : {movies[movieIndex].rating}</p>
+            
+            { showDetails && (
+               <>
+               <p>Description: {movies[movieIndex].description}</p>
+                <p>Rating : {movies[movieIndex].rating}</p>
+               </>
+            )
+            }
+
             <button onClick={() => nextMovie(-1)}>Prev Movie</button>
             <button onClick={() => nextMovie(1)}>Next Movie</button>
             <button onClick={getRandomMovie}>Random Movie</button>
+            <button onClick = {toggleDetails}>{showDetails ? "Hide Details" : "Show Details"}</button>
         </div>
     )
 }
