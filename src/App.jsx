@@ -2,6 +2,7 @@ import { useState } from "react"
 import RandomMovie from "./components/RandomMovie"
 import Navbar from "./components/Navbar"
 import FavoriteMovie from "./components/FavoriteMovies"
+import Form from "./components/Form"
 
 
 
@@ -26,6 +27,7 @@ function App() {
       <Navbar toggleTheme={toggleTheme}/>
       <RandomMovie addMovie={addMovie}/>
       <FavoriteMovie favMovies={favMovies}/>
+      <Form />
     </div>
   )
 }
