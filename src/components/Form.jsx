@@ -8,8 +8,8 @@ export default function Form(props) {
         rating: ''
     })
 
-    function handleChange(e) {
-        const { name, value } = e.target
+    function handleChange(e){
+        const {name, value} = e.target
         setFormData(prevFormData => {
             return {
                 ...prevFormData,
@@ -18,14 +18,15 @@ export default function Form(props) {
         })
     }
 
+    console.log(formData)
 
     return (
         <form>
             <input
                 placeholder="title"
-                onChange={handleChange}
                 name="title"
                 value={formData.title}
+                onChange={handleChange}
             />
             <input
                 placeholder="description"
