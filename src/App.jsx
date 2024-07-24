@@ -26,8 +26,9 @@ function App() {
     <div className={`${theme} main`}>
       <Navbar toggleTheme={toggleTheme}/>
       <RandomMovie addMovie={addMovie}/>
+      <Form addMovie = {addMovie}/>
       <FavoriteMovie favMovies={favMovies}/>
-      <Form />
+      
     </div>
   )
 }

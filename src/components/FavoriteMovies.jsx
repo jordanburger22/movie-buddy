@@ -34,7 +34,8 @@ export default function FavoriteMovie(props) {
 
     return (
 
-        <div>
+        <div className = "favorite-movie-list">
+            <h2> My Favorite Movies</h2>
             {movieElements}
         </div>
     )

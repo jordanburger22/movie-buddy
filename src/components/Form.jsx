@@ -2,11 +2,21 @@ import React, { useState } from "react"
 
 export default function Form(props) {
 
-    const [formData, setFormData] = useState({
-        title: '',
-        description: '',
-        rating: ''
-    })
+    const {addMovie} = props
+
+    // const [initState, setInitState] = useState({
+    //     title: '',
+    //     description: '',
+    //     rating: ''
+    // })
+
+    const initState = {
+            title: '',
+            description: '',
+            rating: ''
+        }
+
+    const [formData, setFormData] = useState(initState)
 
     function handleChange(e){
         const {name, value} = e.target
@@ -18,10 +28,17 @@ export default function Form(props) {
         })
     }
 
+    function handleSubmit(e){
+        e.preventDefault()
+        addMovie(formData)
+        setFormData(initState)
+    }
+
     console.log(formData)
 
     return (
-        <form>
+        <form onSubmit = {handleSubmit}>
+            <h2>Add a New Movie</h2>
             <input
                 placeholder="title"
                 name="title"
@@ -40,6 +57,7 @@ export default function Form(props) {
                 value={formData.rating}
                 onChange={handleChange}
             />
+            <button>Submit New Movie</button>
         </form>
     )
 }

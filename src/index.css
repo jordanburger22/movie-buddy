@@ -1,6 +1,7 @@
 *{
     margin: 0;
     box-sizing: border-box;
+    padding: 2px;
 }
 
 .nav{
@@ -23,4 +24,41 @@
 
 .main{
     height: 100vh;
+    display: flex; 
+    flex-direction: column;
+    gap: 20px;
+}
+
+.random-movie-container {
+    display: flex;
+    flex-direction: column;
+    height: 30vh;
+    width: 75vw;
+    border: 2px solid black;
+    padding: 10px;
+}
+
+.random-movie-container > h2 {
+    border-bottom: 1px solid grey;
+    padding: 2px;
+    margin-bottom: 5px;
+}
+
+button {
+    max-width: 200px;
+}
+
+.favorite-movie-list {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    border: 2px solid black; 
+    padding: 10px;
+}
+
+.favorite-movie-list > h2 {
+    border-bottom: 1px solid grey;
+    padding: 2px;
+    margin-bottom: 5px;
 }
